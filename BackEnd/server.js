@@ -1,34 +1,37 @@
 import express from "express";
 import dotenv from "dotenv";
 import DBconnection from "./config/index.js";
+import usersRouters from "./Router/usersRouters.js";
+import ordersRouters from "./Router/ordersRouters.js";
+import productsRouters from "./Router/productsRouters.js";
 
-dotenv.config(); //with .config= we are using dotenv and we need it to use the secure data
+dotenv.config();
 
-const app = express(); //express allows us to create routes, handle error
+const app = express();
 
-app.use(express.json()); // use express to read the json file
+// middleware
+app.use(express.json());
 
-//CONNECTION
+// connection
 DBconnection();
 
+// routers
+app.use("/api/users", usersRouters);
+app.use("/api/products", productsRouters);
+app.use("/api/orders", ordersRouters);
 
-//ROUTHERS
-app.use("/api/users", usersRouter);
-app.use("/api/products", productsRouter);
-app.use("/api/orders", orderRouter);
-
-// HANDLE PAGE NOT FOUND
+// handle page not found
 app.use((req, res, next) => {
-  res.status(404).send("page not found");
+  res.status(404).send({ msg: "page not found" });
 });
 
-// HANDLE ERRORS
+// handle errors
 app.use((error, req, res, next) => {
   res.status(error.status || 500).send(error.message || "something went wrong");
 });
 
-//LISTEN PORT
-const PORT = process.env.PORT; // in a very secure way(using process.env) to give PORT in server the port number
+// listen port
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("the server is running on port", PORT);
 });
