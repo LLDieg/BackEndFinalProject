@@ -7,9 +7,8 @@ export const register = async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-
     const newUser = await UserModel.create({
-      ...req.body,                          //line 12 and 13, we are breaking up the user body and the password is replaced with the hashedPassword
+      ...req.body, //line 12 and 13, we are breaking up the user body and the password is replaced with the hashedPassword
       password: hashedPassword,
     });
 
@@ -19,40 +18,31 @@ export const register = async (req, res, next) => {
   }
 };
 
-//* login    
+//* login
 export const loginUser = async (req, res, next) => {
-    try {
-      const foundUser = await UserModel.findOne({ email: req.body.email }); // we find user with the mail
-  
-      if (foundUser) {  //! se troviamo l'user                                    
-        const check = await bcrypt.compare(req.body.password, foundUser.password); // we compare to the hashpassword
-  
-        if (check) {  //if check is true
-  
-          //  jwt.sign              (  payload,                                secretkey,             optional part,   )
-          const token = jwt.sign({_id:foundUser._id, email:foundUser.email}, process.env.SECRET_KEY, {issuer:"Deliverando", expiresIn:"5h"})  
-          
-        
-          res.header("token",token).send({msg: "welcome back", foundUser}); //it must be written this way otherwise is difficult to work in the frontend)
-    
-  
-        } else {             
-          res.status(401).send({msg:"password doesn't match!"}); 
-        }  
+  try {
+    const foundUser = await UserModel.findOne({ email: req.body.email }); // we find user with the mail
+    if (foundUser) {
+      const check = await bcrypt.compare(req.body.password, foundUser.password); // we compare to the hashpassword
+
+      if (check) {
+        //if check is true
+        //  jwt.sign              (  payload,                                secretkey,             optional part,   )
+        const token = jwt.sign(
+          { _id: foundUser._id, email: foundUser.email },
+          process.env.SECRET_KEY,
+          { issuer: "Deliverando", expiresIn: "5h" }
+        );
+        res.header("token", token).send({ msg: "welcome back", foundUser }); //it must be written this way otherwise is difficult to work in the frontend)
+      } else {
+        res.status(401).send({ msg: "password doesn't match!" });
       }
-      res.send({msg:"The email or password is incorrect"});
-    } catch (error) {
-      next(error);
     }
-  };
-
-
-
-
-
-
-
-
+    res.send({ msg: "The email or password is incorrect" });
+  } catch (error) {
+    next(error);
+  }
+};
 
 //updating
 export const updateUser = async (req, res, next) => {
