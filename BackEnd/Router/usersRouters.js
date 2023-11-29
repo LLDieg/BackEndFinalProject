@@ -21,10 +21,10 @@ router.delete("/delete/:id", auth, isAdmin, deleteUser);
 
 router.get("/allUsers", auth, isAdmin, getAllUsers);
 
-// //!---
-// router.get('/verifytoken', auth, (req, res)=>{
-//     res.send({succes:true, data:req.user})  //! see frontend Container.jsx
-//   })
-//   //!---
+
+router.get('/verifytoken', auth, (req, res)=>{
+    res.send({succes:true, data:req.user})  //releted to frontend Container.jsx
+  })
+  
 
 export default router;

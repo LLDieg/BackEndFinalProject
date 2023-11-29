@@ -35,10 +35,10 @@ export const loginUser = async (req, res, next) => {
         );
         res.header("token", token).send({ msg: "welcome back", foundUser }); //it must be written this way otherwise is difficult to work in the frontend)
       } else {
-        res.status(401).send({ msg: "password doesn't match!" });
+        res.status(401).send({success: false, msg: "password doesn't match!" });
       }
     }
-    res.send({ msg: "The email or password is incorrect" });
+    res.send({success: false,  msg: "The email or password is incorrect" });
   } catch (error) {
     next(error);
   }
