@@ -5,7 +5,7 @@ import UserModel from "../models/usersSchema.js";
 export const getAllOrders = async (req, res, next) => {
   try {
     const allOrders = await OrderModel.find().populate(
-      "Products",
+      "products",
       "restaurantName dishName price"
     );
     res.send(allOrders);
@@ -18,7 +18,7 @@ export const getAllOrders = async (req, res, next) => {
 export const getSingleOrder = async (req, res, next) => {
   try {
     const singleOrder = await OrderModel.findById(req.params.id)
-      .populate("Products", "restaurantName dishName price")
+      .populate("products", "restaurantName dishName price")
       .populate("userId", "-_id -password -email");
     res.status(200).send(singleOrder);
   } catch (error) {
@@ -30,7 +30,7 @@ export const getSingleOrder = async (req, res, next) => {
 export const getSingleOrderByUserId = async (req, res, next) => {
   try {
     const singleOrderById = await OrderModel.find({ userId: req.params.id })
-      .populate("Products", "restaurantName dishName price")
+      .populate("products", "restaurantName dishName price")
       .populate("userId", "-_id -password -email");
     res.send(singleOrderById);
   } catch (error) {
