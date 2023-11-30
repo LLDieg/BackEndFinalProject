@@ -1,7 +1,12 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 export default function Products() {
   return (
-    <div>Restaurants</div>
+    <> 
+    <NavBar/>
+    <h1>Restaurants</h1>
+    </>
+    
   )
 }

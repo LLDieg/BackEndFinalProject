@@ -1,7 +1,12 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 export default function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <NavBar/>
+     <h1>Profile</h1>
+    </>
+    
   )
 }
