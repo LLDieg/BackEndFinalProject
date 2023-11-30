@@ -7,6 +7,5 @@ export default function Cart() {
      <NavBar/>
     <h1>Cart</h1>
     </>
-    
   )
 }

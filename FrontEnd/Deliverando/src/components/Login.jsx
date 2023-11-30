@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import BASE_URL from "../config/urlConfig";
 
 export default function Login() {
-
   const {setUser} =useContext(MyContext)
   const navigate = useNavigate()
 
@@ -27,7 +26,6 @@ export default function Login() {
           setUser(result.data) 
           //console.log("restaurants")//!!
           navigate("/restaurants") //! to fix
-
           }else{
           console.log(result.message)
          }
@@ -47,6 +45,8 @@ export default function Login() {
         <button>Login</button>
       </form>
       <p>or do it with other accounts</p>
+      <p>PUT OTHER SOCIALS HERE</p>
+      <p>Don't have an account? <a href="#">Sign Up!</a></p>
     </div>
     </>
   )

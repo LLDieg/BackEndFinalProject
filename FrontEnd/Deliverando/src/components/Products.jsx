@@ -7,6 +7,5 @@ export default function Products() {
     <NavBar/>
     <h1>Restaurants</h1>
     </>
-    
   )
 }
