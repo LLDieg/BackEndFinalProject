@@ -14,7 +14,6 @@ export default function RestaurantCard() {
   <p>Min: € </p>
   <p>Delivery time | €2.00 Delivery Charge</p>
   
-  
     </div>
   )
 }
