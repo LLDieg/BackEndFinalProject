@@ -38,10 +38,10 @@ export default function Login() {
     <div>
       <h1>Login</h1>
       <form onSubmit={loginUser}>
-        <label htmlFor="email">E-mail:</label>
-        <input type="email" id="email" name="email"></input>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password"></input>
+        <label htmlFor="email">E-mail:</label><br />
+        <input type="email" id="email" name="email"></input><br />
+        <label htmlFor="password">Password:</label><br />
+        <input type="password" id="password" name="password"></input><br />
         <button>Login</button>
       </form>
       <p>or do it with other accounts</p>
