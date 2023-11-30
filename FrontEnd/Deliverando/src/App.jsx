@@ -5,8 +5,6 @@ import Cart from "./components/Cart.jsx";
 import Profile from "./components/Profile.jsx";
 
 function App() {
-  
-
   return (
     <BrowserRouter>
       <Routes>

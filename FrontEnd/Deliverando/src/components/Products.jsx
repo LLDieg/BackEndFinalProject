@@ -1,11 +1,11 @@
 import React from 'react'
-import NavBar from './NavBar.jsx'
+import NavBar from './NavBar'
 
 export default function Products() {
   return (
-    <>
+    <> 
     <NavBar/>
-    <div>Register</div>
+    <h1>Restaurants</h1>
     </>
   )
 }
