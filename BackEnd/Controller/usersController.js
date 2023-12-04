@@ -78,3 +78,17 @@ export const getAllUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+//get single user by id
+export const getSingleUser = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).send({ success: false, msg: "User not found" });
+    }
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+};

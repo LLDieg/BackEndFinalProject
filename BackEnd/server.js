@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import DBconnection from "./config/index.js";
 import usersRouters from "./Router/usersRouters.js";
 import ordersRouters from "./Router/ordersRouters.js";
@@ -14,6 +15,11 @@ app.use(express.json());
 
 // connection
 DBconnection();
+
+// cors
+app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["tokens"] }));
+// app.use(cors({origin: "http://127.0.0.1:5173", exposedHeaders:["tokens"]}));
+
 
 // routers
 app.use("/api/users", usersRouters);
