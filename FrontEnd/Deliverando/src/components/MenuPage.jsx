@@ -11,10 +11,10 @@ export default function MenuPage() {
         <h1>{state.restaurantName}</h1>
         {state.dishes.map((dish) => {
           return (
-            <div>
+            <div key={dish._id}>
 
               <div>
-                <div key={dish._id}>
+                <div >
                   <h2>{dish.dishName}</h2>
 
                   <div>
@@ -28,7 +28,7 @@ export default function MenuPage() {
 
                   <img
                     src={dish.image_url}
-                    width={200}
+                     width={200}
                     alt="restaurant image"
                   />
                 </div>

@@ -17,11 +17,11 @@ const router = Router();
 router.post("/register", userRegisterValidation, register);
 router.post("/login", loginUser);
 
-router.patch("/update/:id", auth, isAdmin, updateUser);
-router.delete("/delete/:id", auth, isAdmin, deleteUser);
+router.patch("/update/:id", auth,isAdmin, updateUser);
+router.delete("/delete/:id", auth,isAdmin, deleteUser);
 
 router.get("/allUsers", auth, isAdmin, getAllUsers);
-router.get("/singleUser/:id", auth, isAdmin, getSingleUser);
+router.get("/singleUser/:id", auth, isAdmin,getSingleUser); 
 
 router.get('/verifytoken', auth, (req, res)=>{
     res.send({succes:true, data:req.user})  //releted to frontend Container.jsx
