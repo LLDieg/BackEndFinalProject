@@ -1,33 +1,23 @@
-import React, { useContext, useEffect } from "react";
-import { MyContext } from "../context/context";
-import BASE_URL from "../config/urlConfig";
+import { useLocation } from "react-router-dom";
 
 export default function MenuPage() {
-  const { products, setProducts } = useContext(MyContext);
 
-  useEffect(() => {
-    fetch(`${BASE_URL}/api/products/singleProduct/:id"`)
-      .then((result) => {
-        setProducts(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const { state } = useLocation();
+  console.log(state);
 
   return (
     <div>
-      <div>
-        {products.map((product) => {
+        {state && <div>
+        <h1>{state.restaurantName}</h1>
+        {state.dishes.map((dish) => {
           return (
             <div>
 
               <div>
-                <div key={product._id}>
-                  <h1>{product.restaurantName}</h1>
+                <div key={dish._id}>
+                  <h2>{dish.dishName}</h2>
 
                   <div>
-                    <p>{product.rating}</p>
                     <p>Minimum order €15 </p>
                   </div>
 
@@ -37,7 +27,7 @@ export default function MenuPage() {
                   </div>
 
                   <img
-                    src={product.image_url}
+                    src={dish.image_url}
                     width={200}
                     alt="restaurant image"
                   />
@@ -55,6 +45,7 @@ export default function MenuPage() {
           );
         })}
       </div>
+}
     </div>
   );
 }

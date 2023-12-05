@@ -1,5 +1,5 @@
-import React from 'react'
 import "../style/productsPageStyle.css";
+import RestaurantCard from './RestaurantCard';
 
 
 export default function Products() {
@@ -13,7 +13,7 @@ export default function Products() {
           {/* First Slider */}
           <label className="switch">
             <input type="checkbox"/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
         <div className="Side-Option">
@@ -21,7 +21,7 @@ export default function Products() {
           {/* Second Slider */}
           <label className="switch">
             <input type="checkbox"/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
         <div>
@@ -33,6 +33,9 @@ export default function Products() {
       <div className="search">
         <input type="text" id="searchbox" name="searchbox" placeholder="Search for a restaurant"/>
       </div>
+
+      {/* Restaurants */}
+      <RestaurantCard/>
     </>
   )
 }

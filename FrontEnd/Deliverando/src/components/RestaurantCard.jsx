@@ -1,15 +1,40 @@
-import React from 'react'
+
+import React, { useEffect }from 'react'
+import { useContext } from 'react';
+import { MyContext } from '../context/context';
+import BASE_URL from '../config/urlConfig';
+import { useNavigate, Link } from 'react-router-dom';
+
 export default function RestaurantCard() {
-
-
-
+  const { products, setProducts } = useContext(MyContext);
   
-  return (<div className="restaurantCard">
-  <img src="#" alt="Restaurant picture"> </img>
-  <h1>Restaurant Name</h1>
-  <p>Rating Symbol</p>
-  <p>Min: € </p>
-  <p>Delivery time | €2.00 Delivery Charge</p>
+  useEffect(() => {
+    fetch(`${BASE_URL}/api/products/allProducts`)
+    .then((res) => res.json())
+      .then((result) => {
+        setProducts(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return (
+    <div>
+      {products.map((product) => {
+        return (
+          <Link to={`/restaurants/${product.restaurantName}`} state={product}>
+            <div key={product._id} className="restaurantCard">
+              <img src="1.jpg" alt="Restaurant picture"/>
+              <h1>{product.restaurantName}</h1>
+              <p>Rating: {product.rating}</p>
+              <p>Minimum Order: €10 </p>
+              <p>Delivery time: 30-50 min | €2.00 Delivery Charge</p>
+            </div>
+        </Link>
+        );
+      })}
+
     </div>
   )
 }
