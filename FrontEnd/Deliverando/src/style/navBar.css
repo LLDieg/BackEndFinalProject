@@ -1,0 +1,29 @@
+/* NavBar.css */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color:#242e30; 
+    background-color: #f5f3f1; 
+  }
+  
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #242e30; 
+    margin-right: 40px;
+    font-weight: bold;
+  }
+  
+  .navbar a:hover{
+    color: #f36805; 
+  }
+  
+  

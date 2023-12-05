@@ -17,8 +17,8 @@ app.use(express.json());
 DBconnection();
 
 // cors
-app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["tokens"] }));
-// app.use(cors({origin: "http://127.0.0.1:5173", exposedHeaders:["tokens"]}));
+app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
+// app.use(cors({origin: "http://127.0.0.1:5173", exposedHeaders:["token"]}));
 
 
 // routers

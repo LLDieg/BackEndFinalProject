@@ -2,11 +2,11 @@ import React, { useEffect }from 'react'
 import { useContext } from 'react';
 import { MyContext } from '../context/context';
 import BASE_URL from '../config/urlConfig';
-import { useNavigate, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
 export default function RestaurantCard() {
   const { products, setProducts } = useContext(MyContext);
-  const navigate= useNavigate()
+  //! const navigate= useNavigate() delete
 
   useEffect(() => {
     fetch(`${BASE_URL}/api/products/allProducts`)
@@ -23,9 +23,10 @@ export default function RestaurantCard() {
     <div>
       {products.map((product) => {
         return (
-          <Link to={`/restaurants/${product.restaurantName}`} state={product}>
-            <div key={product._id} className="restaurantCard">
-              <img src="1.jpg" alt="Restaurant picture"/>
+          //!!!
+          <Link key={product._id} to={`/restaurants/${product.restaurantName}`} state={product}>
+            <div className="restaurantCard">
+              <img src={product.image_url} width={300} alt="Restaurant picture"/>
               <h1>{product.restaurantName}</h1>
               <p>Rating: {product.rating}</p>
               <p>Minimum Order: €10 </p>
