@@ -24,7 +24,7 @@ router.get("/allUsers", auth, isAdmin, getAllUsers);
 router.get("/singleUser/:id", auth, isAdmin,getSingleUser); 
 
 router.get('/verifytoken', auth, (req, res)=>{
-    res.send({succes:true, data:req.user})  //releted to frontend Container.jsx
+    res.send({success:true, data:req.user})  //releted to frontend Container.jsx
   })
   
 
