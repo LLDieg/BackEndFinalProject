@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BASE_URL from "../config/urlConfig";
+import "../style/profile.css";
 
 export default function Profile() {
   const [user, setUser] = useState({
@@ -79,15 +80,26 @@ export default function Profile() {
   };
 
   return (
-    <>
+    <div className="profile">
       {user._id ? (
         <>
-          <h1>Hi {user.firstName}</h1>
+          <h1>
+            Hi <span>{user.firstName}</span>{" "}
+          </h1>
           <div>
             <h2>Your personal data</h2>
-            <p>First name: {user?.firstName}</p>
-            <p>Last name: {user?.lastName}</p>
-            <p>Email: {user?.email}</p>
+            <p>
+              {" "}
+              <span>First name:</span> {user?.firstName}
+            </p>
+            <p>
+              {" "}
+              <span>Last name:</span> {user?.lastName}
+            </p>
+            <p>
+              {" "}
+              <span>Email:</span> {user?.email}
+            </p>
           </div>
           <div>
             <h2>Your orders</h2>
@@ -143,6 +155,6 @@ export default function Profile() {
       ) : (
         <p>Loading...</p>
       )}
-    </>
+    </div>
   );
 }
