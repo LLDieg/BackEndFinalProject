@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { MyContext } from '../context/context';
 import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../config/urlConfig';
+import "../style/loginRegister.css";
 
 export default function Login() {
 
@@ -41,7 +42,6 @@ export default function Login() {
 
   return (
     <>
-      <div>LEFT SIDE</div>
       <div>
         <h1>Login</h1>
         <form onSubmit={loginUser}>

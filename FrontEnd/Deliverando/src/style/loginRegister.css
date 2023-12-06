@@ -1,0 +1,41 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+}
+
+label {
+  margin-top: 1rem;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px;
+  background-color: var(--orange-bg);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
