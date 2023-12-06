@@ -1,0 +1,27 @@
+.footer {
+    list-style-type: none;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: #242e30;
+    height: 14rem;
+  }
+  
+  .imageHolder {
+    position: relative;
+    max-width: 100%;
+  }
+  /* i ended up not using this */
+  /* .thanks { 
+    position: absolute;
+    top: 50%;   
+    left: 50%;
+    transform: translate(-50%, -80%);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+  }
+   */
