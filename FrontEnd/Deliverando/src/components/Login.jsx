@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../config/urlConfig';
 
 export default function Login() {
-  const { setUser } = useContext(MyContext);
+ 
+  const { setUser , setToken} = useContext(MyContext); 
   const navigate = useNavigate();
+
 
   const loginUser = (e) => {
     e.preventDefault();
@@ -48,13 +50,11 @@ export default function Login() {
           <input type="password" id="password" name="password"></input>
           <br />
           <button>Login</button>
-          <button>Logout</button>
+          <button onClick={() => setToken(null)}>Logout</button> 
         </form>
         <p>or do it with other accounts</p>
         <p>PUT OTHER SOCIALS HERE</p>
-        <p>
-          Don't have an account? <a href="#">Sign Up!</a>
-        </p>
+        <p>Don't have an account? <a href="#" onClick={showRegistation}>Sign Up!</a></p>
       </div>
     </>
   );
