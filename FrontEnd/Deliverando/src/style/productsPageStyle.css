@@ -1,11 +1,17 @@
 /* SIDE PANEL */
 /* WIP */
+.total {
+  display: flex;
+}
+
 .Side-Panel {
-  width: 200px;
+  flex: 0 0 20%;
   box-sizing: border-box;
   padding: 20px;
-  background-color: #f2f2f2;
+  background-color: #f5f3f1;
   border-right: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
 .Side-Option {
@@ -14,12 +20,16 @@
 
 /* SEARCH BOX */
 
+.col-2 {
+  flex: 1;
+}
+
 .search {
   padding: 20px;
 }
 
 #searchbox {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;

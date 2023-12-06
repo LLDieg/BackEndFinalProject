@@ -53,8 +53,7 @@ export default function Login() {
           <br />
           <input type="password" id="password" name="password"></input>
           <br />
-          <button>Login</button>
-          <button onClick={() => setToken(null)}>Logout</button> 
+          <button>Login</button> 
         </form>
         <p>or do it with other accounts</p>
         <p>PUT OTHER SOCIALS HERE</p>

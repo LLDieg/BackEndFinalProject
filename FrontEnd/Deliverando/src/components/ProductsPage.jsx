@@ -5,7 +5,7 @@ import RestaurantCard from './RestaurantCard';
 export default function Products() {
 
   return (
-    <> 
+    <div className="total"> 
     {/* Side Options */}
     <div className="Side-Panel">
         <div className="Side-Option">
@@ -27,17 +27,18 @@ export default function Products() {
         <div>
           <p>Min-Rating</p>
         </div>
-      
+      </div>
 
       {/* Searchbox Part */}
-      <div class="col-2">
+      <div className="col-2">
         <div className="search">
           <input type="text" id="searchbox" name="searchbox" placeholder="Search for a restaurant"/>
         </div>
-      </div>
-      {/* Restaurants */}
-      <RestaurantCard/>
-      </div>
-    </>
+      
+        {/* Restaurants */}
+        <RestaurantCard/>
+        </div>
+      
+    </div>
   )
 }
