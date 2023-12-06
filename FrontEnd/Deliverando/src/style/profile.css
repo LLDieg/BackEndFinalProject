@@ -1,0 +1,67 @@
+.profile {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.profile h1 {
+  margin-top: 5rem;
+  margin-left: 30px;
+}
+
+.profile h1,
+h2 {
+  color: var(--orange-text);
+}
+
+.profile h1 span {
+  color: var(--black-text);
+}
+
+.profile span {
+  font-weight: bold;
+}
+
+.profile div {
+  background-color: var(--light-grey);
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.profile ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile li {
+  margin-bottom: 5px;
+}
+
+.profile form {
+  width: 20rem;
+}
+
+.profile label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.profile button {
+  background-color: var(--orange-bg);
+  color: var(--black-text);
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile button:hover {
+  background-color: var(--orange-text);
+}
