@@ -27,15 +27,17 @@ export default function Products() {
         <div>
           <p>Min-Rating</p>
         </div>
-      </div>
+      
 
       {/* Searchbox Part */}
-      <div className="search">
-        <input type="text" id="searchbox" name="searchbox" placeholder="Search for a restaurant"/>
+      <div class="col-2">
+        <div className="search">
+          <input type="text" id="searchbox" name="searchbox" placeholder="Search for a restaurant"/>
+        </div>
       </div>
-
       {/* Restaurants */}
       <RestaurantCard/>
+      </div>
     </>
   )
 }

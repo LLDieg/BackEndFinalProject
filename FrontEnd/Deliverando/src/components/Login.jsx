@@ -4,10 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../config/urlConfig';
 
 export default function Login() {
- 
-  const { setUser , setToken} = useContext(MyContext); 
+
+  const { setUser,setToken, showRegister, setShowRegister } = useContext(MyContext);
   const navigate = useNavigate();
 
+
+  function showRegistation(){
+    setShowRegister(false)
+    }
 
   const loginUser = (e) => {
     e.preventDefault();

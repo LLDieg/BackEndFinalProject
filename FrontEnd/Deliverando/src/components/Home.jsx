@@ -8,8 +8,8 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home</h1>
-      {showRegister ? <Register /> : <Login />}
+    <h1>Home</h1>
+    {showRegister ? <Login /> : <Register />}
     </>
   );
 }
