@@ -6,6 +6,7 @@ export default function Container({ children }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [showRegister, setShowRegister] = useState(true);
+  const [token , setToken] = useState(localStorage.getItem("token")|| null)
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -17,10 +18,12 @@ export default function Container({ children }) {
       })
         .then((res) => res.json())
         .then((result) => {
+          console.log(result)
           if (result.success) {
             setUser(result.data);
           } else {
             console.log(result.message);
+            setToken(localStorage.getItem("token"))
           }
         });
     }
@@ -28,9 +31,10 @@ export default function Container({ children }) {
 
   return (
     <MyContext.Provider
-      value={{ user, setUser, products, setProducts, cart, setCart, showRegister, setShowRegister }}
+      value={{ user, setUser, products, setProducts, cart, setCart,showRegister, setShowRegister }}
     >
       {children}
     </MyContext.Provider>
   );
 }
+
