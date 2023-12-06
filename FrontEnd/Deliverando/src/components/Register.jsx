@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { MyContext } from "../context/context";
 import toast, { Toaster } from "react-hot-toast";
 import BASE_URL from "../config/urlConfig";
 
 export default function Register() {
+  const {setShowRegister}=useContext(MyContext)
   const navigate = useNavigate();
+
+  function showRegistation(){
+    setShowRegister(true)
+    }
+
+
   const registerUser = (e) => {
     e.preventDefault();
     const user = {
@@ -27,6 +35,7 @@ export default function Register() {
           e.target.reset();
           toast.success("You successfully registered!"); // pop-up message
           setTimeout(() => {
+            setShowRegister(false)
             navigate("/");
           }, 1500);
         }
@@ -47,8 +56,10 @@ export default function Register() {
         <input type="email" id="email" name="email" /> <br />
         <label htmlFor="password">Password : </label>
         <input type="password" id="password" name="password" /> <br />
-        <button>Register</button>
+        <button onClick={showRegistation}>Register</button>
       </form>
+
+      <p>Have an account already? <a href="#" onClick={showRegistation}>Sign In!</a></p>
     </div>
   );
 }

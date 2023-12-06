@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { MyContext } from '../context/context';
 import BASE_URL from '../config/urlConfig';
 import {Link } from 'react-router-dom';
+import "../style/restaurantCard.css"
 
 export default function RestaurantCard() {
   const { products, setProducts } = useContext(MyContext);

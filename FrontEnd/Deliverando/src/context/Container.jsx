@@ -5,6 +5,7 @@ export default function Container({ children }) {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [showRegister, setShowRegister] = useState(true);
   const [token , setToken] = useState(localStorage.getItem("token")|| null)
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Container({ children }) {
 
   return (
     <MyContext.Provider
-      value={{ user, setUser, products, setProducts, cart, setCart }}
+    value={{ user, setUser, products, setProducts, cart, setCart, showRegister, setShowRegister }}
     >
       {children}
     </MyContext.Provider>
