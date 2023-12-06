@@ -2,10 +2,17 @@ import React, {useContext} from 'react'
 import {MyContext} from "../context/context"
 import { useNavigate } from 'react-router-dom'
 import BASE_URL from "../config/urlConfig";
+import Register from './Register.jsx'
+
 
 export default function Login() {
-  const {setUser} =useContext(MyContext)
+  const {setUser, showRegister, setShowRegister} =useContext(MyContext)
+ 
   const navigate = useNavigate()
+
+  function showRegistation(){
+  setShowRegister(true)
+  } 
 
   const loginUser = (e) => {
     e.preventDefault();
@@ -46,7 +53,7 @@ export default function Login() {
       </form>
       <p>or do it with other accounts</p>
       <p>PUT OTHER SOCIALS HERE</p>
-      <p>Don't have an account? <a href="#">Sign Up!</a></p>
+      <p>Don't have an account? <a href="#" onClick={showRegistation}>Sign Up!</a></p>
     </div>
     </>
   )

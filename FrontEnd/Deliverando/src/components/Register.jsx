@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import BASE_URL from "../config/urlConfig";
+import { MyContext } from "../context/context";
 
 export default function Register() {
+  const {setShowRegister}=useContext(MyContext)
   const navigate = useNavigate();
   const registerUser = (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ export default function Register() {
           e.target.reset();
           toast.success("You successfully registered!"); // pop-up message
           setTimeout(() => {
+            setShowRegister(false)
             navigate("/");
           }, 1500);
         }

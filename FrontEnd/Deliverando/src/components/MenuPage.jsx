@@ -39,6 +39,7 @@ export default function MenuPage() {
                 <button>Deals</button>
                 <button>Mains</button>
                 <button>Drinks</button>
+                <button>Add to Cart</button>
               </div>
 
             </div>

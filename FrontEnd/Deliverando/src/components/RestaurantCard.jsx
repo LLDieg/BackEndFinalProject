@@ -25,7 +25,7 @@ export default function RestaurantCard() {
         return (
           <Link to={`/restaurants/${product.restaurantName}`} state={product}>
             <div key={product._id} className="restaurantCard">
-              <img src="1.jpg" alt="Restaurant picture"/>
+              <img src={product.image_url} alt="Restaurant picture"/>
               <h1>{product.restaurantName}</h1>
               <p>Rating: {product.rating}</p>
               <p>Minimum Order: €10 </p>
