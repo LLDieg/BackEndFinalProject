@@ -21,7 +21,7 @@ export default function RestaurantCard() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {products.map((product) => {
         return (
           <Link

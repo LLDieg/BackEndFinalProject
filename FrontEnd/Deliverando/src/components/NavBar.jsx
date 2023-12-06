@@ -6,6 +6,13 @@ import { MyContext } from '../context/context';
 
 export default function NavBar() {
   const {user} = useContext(MyContext)
+
+  // Removing the token from localStorage
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    
+  };
+
   return (
     <nav className="navbar">
 
@@ -20,16 +27,17 @@ export default function NavBar() {
             <>
               <li><Link to="/cart" >🛒 Cart</Link></li>
               <li><Link to="/profile" >👤 Profile</Link></li>
+              <li className="logout" onClick={handleLogout} ><Link to="/" >Logout</Link></li>
             </>
           )}
          
       </ul>
       </div>
 
-      <div>
-      <button className="nav-button">Delivery</button> {/*shuold be a switch */}
+      {/* <div>                       FOR LATER
+      <button className="nav-button">Delivery</button> {/*shuold be a switch 
       <button className="nav-button">Collection</button>
-      </div>
+      </div> */}
     </nav>
   );
 }
