@@ -5,6 +5,7 @@ import Cart from "./components/Cart.jsx";
 import Profile from "./components/Profile.jsx";
 import NavBar from "./components/NavBar.jsx";
 import MenuPage from "./components/MenuPage.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
        {/* <Route path="/menu" element={<MenuPage/>} /> */}
         <Route path="/restaurants/:name" element={<MenuPage/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

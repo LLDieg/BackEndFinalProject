@@ -1,20 +1,20 @@
-form {
+.login form {
   display: flex;
   flex-direction: column;
   max-width: 300px;
   margin: auto;
 }
 
-label {
+.login label {
   margin-top: 1rem;
 }
 
-input {
+.login input {
   padding: 8px;
   margin-bottom: 15px;
 }
 
-button {
+.login button {
   padding: 10px;
   background-color: var(--orange-bg);
   color: #fff;
@@ -22,20 +22,20 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.login button:hover {
   background-color: #45a049;
 }
 
-p {
+.login p {
   text-align: center;
   margin-top: 20px;
 }
 
-a {
+.login a {
   color: #007bff;
   text-decoration: none;
 }
 
-a:hover {
+.login a:hover {
   text-decoration: underline;
 }
