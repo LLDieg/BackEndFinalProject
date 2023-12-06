@@ -31,9 +31,11 @@ export default function Container({ children }) {
 
   return (
     <MyContext.Provider
+
     value={{ user, setUser, products, setProducts, cart, setCart, showRegister, setShowRegister }}
     >
       {children}
     </MyContext.Provider>
   );
 }
+
