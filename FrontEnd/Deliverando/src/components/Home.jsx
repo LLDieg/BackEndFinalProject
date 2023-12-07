@@ -16,7 +16,7 @@ export default function Home() {
           <p>"Delivering Happiness, One Meal at a Time."</p>
         </div>
         <div className="rightSide">
-          {token ? (<h2>welcome</h2>) : (showRegister ? <Login /> : <Register />)}
+          { (showRegister ? <Login /> : <Register />)}
         </div>
       </div>
     </div>

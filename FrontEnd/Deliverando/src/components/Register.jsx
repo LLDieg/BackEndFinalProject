@@ -45,7 +45,7 @@ export default function Register() {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Register User Page</h1>
       <Toaster position="top-center" /> {/* toast position*/}
       <form onSubmit={registerUser}>

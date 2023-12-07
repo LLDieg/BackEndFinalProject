@@ -6,7 +6,7 @@ import "../style/loginRegister.css";
 
 export default function Login() {
 
-  const { setUser,setToken, showRegister, setShowRegister } = useContext(MyContext);
+  const { setUser, setShowRegister } = useContext(MyContext);
   const navigate = useNavigate();
 
 
