@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BASE_URL from "../config/urlConfig";
 import "../style/profile.css";
 
+
 export default function Profile() {
   const [user, setUser] = useState({
     _id: "",
@@ -58,17 +59,16 @@ export default function Profile() {
         body: JSON.stringify(formData),
       })
         .then((res) => {
-          if (!res.ok) {
+          if (!res.ok) {            
             throw new Error("Update failed", res);
           }
-          console.log("Your data has been successfully updated", res);
           setIsUpdated(true);
         })
         .catch((error) => {
           console.error("Update Error:", error);
         });
 
-      console.log("After update fetch:", formData);
+    
     } else {
       console.log("not autorized");
     }
@@ -81,6 +81,7 @@ export default function Profile() {
 
   return (
     <div className="profile">
+      
       {user._id ? (
         <>
           <h1>
@@ -104,9 +105,50 @@ export default function Profile() {
           <div>
             <h2>Your orders</h2>
             {user.orders.length > 0 ? (
+              // <ul className="orders">
+              //   {user?.orders.map((order, index) => (
+              //     <div key={index}>
+              //       <img src={order.image_url} alt="dish img" />
+              //       <li> {order.dishName}</li>
+              //       <li>{order.price}</li>
+              //     </div>
+              //   ))}
+              // </ul>
               <ul>
                 {user?.orders.map((order, index) => (
-                  <li key={index}>{order}</li>
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "0px",
+                      heigth: "20px",
+                    }}
+                  >
+                    <img
+                      src={order.image_url}
+                      alt="dish img"
+                      style={{
+                        width: "100px",
+                        borderRadius: "5px",
+                        marginRight: "10px",
+                      }}
+                    />
+                    <div>
+                      <p
+                        style={{
+                          margin: "5px 0",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <span style={{ marginRight: "10px" }}>
+                          {order.dishName}
+                        </span>
+                        <span>€ {order.price}</span>
+                      </p>
+                    </div>
+                  </div>
                 ))}
               </ul>
             ) : (

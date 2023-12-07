@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { MyContext } from "../context/context";
+import "../style/menuPage.css"
 
 export default function MenuPage() {
   const { cart, setCart } = useContext(MyContext);
@@ -14,7 +15,7 @@ export default function MenuPage() {
   } 
 
   return (
-    <div>
+    <div className="menu">
       {state && (
         <div>
           <h1>{state.restaurantName}</h1>
@@ -26,31 +27,24 @@ export default function MenuPage() {
           </div>
           <div>
             <p>Minimum order €15 </p>
-          </div>
-
-          <div>
             <p>20-50 min.</p>
             <p>Delivery charge €2.50 </p>
           </div>
 
           {state.dishes.map((dish) => {
             return (
-              <div key={dish._id}>
-                <div>
+              <div key={dish._id}>               
                   <div>
-                    <h2>{dish.dishName}</h2>
-
                     <img
                       src={dish.image_url}
                       width={200}
                       alt="restaurant image"
                     />
+                    <h2>{dish.dishName}</h2>
                     <p>{dish.ingredients}</p>
                     <button onClick={() => addToCart(dish)}>Add to Cart</button>
                   </div>
-                </div>
-              </div>
-
+                </div>        
             );
           })}
         </div>
