@@ -41,14 +41,16 @@ export const getSingleOrderByUserId = async (req, res, next) => {
 //* create
 export const createOrder = async (req, res, next) => {
   try {
-    const order = await OrderModel.create(req.body);
-    const upadatedUser = await UserModel.findByIdAndUpdate(
+    const order = new OrderModel(req.body);
+    const updatedUser = await UserModel.findByIdAndUpdate(
       req.user._id,
-      { $push: { orders: order._id } },
+      { orders: order.products},
       { new: true }
     );
-    res.send(upadatedUser);
+    await order.save();
+    res.send(updatedUser);
   } catch (err) {
+    console.log(err.message);
     next(err);
   }
 };

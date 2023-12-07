@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { MyContext } from "../context/context";
+import toast, { Toaster } from "react-hot-toast";
+import BASE_URL from "../config/urlConfig";
+import "../style/cart.css"
 
 export default function Cart() {
-  const { cart, setCart } = useContext(MyContext);
+  const { cart, setCart, user } = useContext(MyContext);
+  let totalPrice = 0;
 
   const handleDelete = (index) => {
     const newCart = [...cart];
@@ -11,33 +15,70 @@ export default function Cart() {
   };
 
   const getTotalPrice = () => {
-    let totalPrice = 0;
+    
     for ( let i = 0; i < cart.length; i++) {
       totalPrice += cart[i].price;
     }
     return totalPrice;
   };
 
+  const addOrder = (e) => {
+    e.preventDefault();
+
+    const order = {
+      products: cart, // restaurant Id ordered from
+      totalPrice: totalPrice, // total price
+      userId: user._id // user Id currently logged in
+    };
+   console.log(order.products);
+    fetch(`${BASE_URL}/api/orders/create`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", token: localStorage.getItem("token") },
+      body: JSON.stringify(order),
+    }).then((res) => {
+      return res.json();
+    })
+      .then((result) => {
+        if (result.errors) {
+          console.log(result.errors);
+          toast.error(JSON.stringify(result.errors));
+        } else {
+          toast.success("You successfully ordered!"); // pop-up message
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+
+
+
+
   return (
     <div>
       <h1>Cart</h1>
+      <Toaster position="top-center" /> {/* toast position*/}
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <div> 
+          <p>Your cart is empty :disappointed:</p>
+          <p>Choose something to eat! :hamburger::yum::pizza:</p>
+        </div>
       ) : (
-        <ul>
+        <table>
+        <tbody>
           {cart.map((item, index) => (
-            <li key={index}>
-              <img src={item.image_url} alt="dish image" /> 
-              {item.dishName}
-              <span>Price: {item.price} €</span> 
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </li>
+            <tr key={index}>
+              <td><img src={item.image_url} alt="dish image" /></td>
+              <td>{item.dishName}</td>
+              <td>{item.price} €</td>
+              <td><button className="delete" onClick={() => handleDelete(index)}>Delete</button></td>
+            </tr>
           ))}
-        </ul>
+        </tbody>
+      </table>
       )}
        <p>Total Price: {getTotalPrice()} €</p>
 
-       <button>Confirm the order</button>
+       <button onClick={addOrder}>Confirm the order</button>
     </div>
   );
 }
