@@ -2,6 +2,8 @@
 /* WIP */
 .total {
   display: flex;
+  max-width: 1700px;
+  margin: 0 auto;
 }
 
 .Side-Panel {

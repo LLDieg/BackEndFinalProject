@@ -24,7 +24,8 @@ export default function RestaurantCard() {
     <div className="container">
       {products.map((product) => {
         return (
-          <Link
+          <Link 
+            style={{ textDecoration: 'none', color: '#242e30' }}
             key={product._id}
             to={`/restaurants/${product.restaurantName}`}
             state={product}
